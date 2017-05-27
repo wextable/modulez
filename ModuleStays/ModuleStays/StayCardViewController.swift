@@ -8,8 +8,6 @@
 
 import UIKit
 import CoreLibrary
-import ModuleCheckIn
-import ModuleDKey
 
 class StayCardViewController: UIViewController {
 
