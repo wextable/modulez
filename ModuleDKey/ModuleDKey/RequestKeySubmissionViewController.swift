@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreLibrary
 
 class RequestKeySubmissionViewController: UIViewController {
 
-    var stay: DKeyStay!
+    var stay: Stay!
     
     override func viewDidLoad() {
         super.viewDidLoad()

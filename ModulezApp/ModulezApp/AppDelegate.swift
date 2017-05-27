@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: CheckInDelegate {
     
-    public func checkInCompleted(stay: CheckInStay, selectedTime: String, isUpgrade: Bool) {
+    public func checkInCompleted(stay: Stay, selectedTime: String, isUpgrade: Bool) {
         var welcomeMessage = "Great! See you at \(selectedTime)"
         if isUpgrade {
             welcomeMessage += " in your upgraded room, Boss!"
@@ -80,9 +80,8 @@ extension AppDelegate: CheckInDelegate {
         if let rvc = rootVC() {
             var vc: UIViewController?
             
-            if let dKeyStay = stay as? DKeyStay,
-                dKeyStay.hotel.isDKeyEnabled == true {
-                vc = dKeyModule.launchRequestKey(for: dKeyStay, welcomeMessage: welcomeMessage)
+            if stay.hotel.isDKeyEnabled {
+                vc = dKeyModule.launchRequestKey(for: stay, welcomeMessage: welcomeMessage)
                 
             } else {
                 vc = MessageViewController.messageController(message: welcomeMessage)
@@ -121,7 +120,7 @@ extension AppDelegate: CheckInDelegate {
 }
 
 extension AppDelegate: DKeyDelegate {
-    public func requestKeyCompleted(stay: DKeyStay) {
+    public func requestKeyCompleted(stay: Stay) {
         if let rvc = rootVC() {
             let message = "Hells yeah, we'll get that key for your stay at \(stay.hotel.name), bro!"
             let messageVC = MessageViewController.messageController(message: message)
@@ -137,7 +136,7 @@ extension AppDelegate: DKeyDelegate {
 extension AppDelegate: StaysDelegate {
     public func launchCheckIn(for stay: Stay) {
         if let rvc = rootVC(){//,
-            let checkInStay = stay as! CheckInStay// {
+            let checkInStay = stay as! Stay// {
             
             let checkInVC = checkInModule.launchCheckIn(for: checkInStay)
             rvc.present(checkInVC, animated: true) {
@@ -148,10 +147,9 @@ extension AppDelegate: StaysDelegate {
 
     public func launchRequestKey(for stay: Stay, welcomeMessage: String?) {
         if let dKeyModule = dKeyModule,
-            let dKeyStay = stay as? DKeyStay,
             let rvc = rootVC() {
             
-            let requestKeyVC = dKeyModule.launchRequestKey(for: dKeyStay, welcomeMessage: welcomeMessage)
+            let requestKeyVC = dKeyModule.launchRequestKey(for: stay, welcomeMessage: welcomeMessage)
             
             rvc.present(requestKeyVC, animated: true) {
                 print("Presented Request Key flow")

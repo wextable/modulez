@@ -11,9 +11,9 @@ import CoreLibrary
 
 class CheckInViewController: UIViewController {
     
-    var stay: CheckInStay!
+    var stay: Stay!
     
-    static func checkInController(for stay: CheckInStay) -> UIViewController {
+    static func checkInController(for stay: Stay) -> UIViewController {
         let storyboard = UIStoryboard(name: "CheckIn", bundle: Bundle(for: self))
         let navVC = storyboard.instantiateViewController(withIdentifier :"CheckInViewControllerNav") as! UINavigationController
         let vc = navVC.topViewController as! CheckInViewController

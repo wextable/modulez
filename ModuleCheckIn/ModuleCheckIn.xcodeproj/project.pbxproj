@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		656D9D3C1ED8EE5C001D46F6 /* CheckInDataModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D9D3B1ED8EE5C001D46F6 /* CheckInDataModelProtocols.swift */; };
 		65DEA2451ED62C0B003FAE01 /* ModuleCheckIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DEA23B1ED62C0B003FAE01 /* ModuleCheckIn.framework */; };
 		65DEA24A1ED62C0B003FAE01 /* ModuleCheckInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEA2491ED62C0B003FAE01 /* ModuleCheckInTests.swift */; };
 		65DEA24C1ED62C0B003FAE01 /* ModuleCheckIn.h in Headers */ = {isa = PBXBuildFile; fileRef = 65DEA23E1ED62C0B003FAE01 /* ModuleCheckIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,7 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		656D9D3B1ED8EE5C001D46F6 /* CheckInDataModelProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInDataModelProtocols.swift; sourceTree = "<group>"; };
 		65DEA23B1ED62C0B003FAE01 /* ModuleCheckIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModuleCheckIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DEA23E1ED62C0B003FAE01 /* ModuleCheckIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleCheckIn.h; sourceTree = "<group>"; };
 		65DEA23F1ED62C0B003FAE01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 			children = (
 				65DEA23E1ED62C0B003FAE01 /* ModuleCheckIn.h */,
 				65DEA25C1ED62DA0003FAE01 /* CheckInModule.swift */,
-				656D9D3B1ED8EE5C001D46F6 /* CheckInDataModelProtocols.swift */,
 				65DEA25B1ED62DA0003FAE01 /* CheckInDelegate.swift */,
 				65DEA25D1ED62DA0003FAE01 /* CheckInViewController.swift */,
 				65DEA2691ED6382D003FAE01 /* CheckInSubmissionViewController.swift */,
@@ -234,7 +231,6 @@
 			files = (
 				65DEA26A1ED6382D003FAE01 /* CheckInSubmissionViewController.swift in Sources */,
 				65DEA25E1ED62DA0003FAE01 /* CheckInDelegate.swift in Sources */,
-				656D9D3C1ED8EE5C001D46F6 /* CheckInDataModelProtocols.swift in Sources */,
 				65DEA2601ED62DA0003FAE01 /* CheckInViewController.swift in Sources */,
 				65DEA25F1ED62DA0003FAE01 /* CheckInModule.swift in Sources */,
 			);

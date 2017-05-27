@@ -12,11 +12,11 @@ import CoreLibrary
 let CheckInCompletedNotificationName = "CheckInCompletedNotification"
 
 struct CheckInCompletedNotification {
-    let stay: CheckInStay
+    let stay: Stay
     let checkInTime: String
     let isUpgrade: Bool
     
-    init(stay: CheckInStay, checkInTime: String, isUpgrade: Bool) {
+    init(stay: Stay, checkInTime: String, isUpgrade: Bool) {
         self.stay = stay
         self.checkInTime = checkInTime
         self.isUpgrade = isUpgrade
@@ -41,7 +41,7 @@ public class CheckInModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func launchCheckIn(for stay: CheckInStay) -> UIViewController {
+    public func launchCheckIn(for stay: Stay) -> UIViewController {
         let initialCheckInVC = CheckInViewController.checkInController(for: stay)
         return initialCheckInVC
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLibrary
 
 let RequestKeyCompletedNotificationName = "RequestKeyCompletedNotificationName"
 
@@ -28,7 +29,7 @@ public class DKeyModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func launchRequestKey(for stay: DKeyStay, welcomeMessage: String?) -> UIViewController {
+    public func launchRequestKey(for stay: Stay, welcomeMessage: String?) -> UIViewController {
         let message = welcomeMessage ?? "Digital keys are the best"
         
         let initialRequestKeyVC = RequestKeyViewController.requestKeyController(for: stay, welcomeMessage: message)
@@ -36,7 +37,7 @@ public class DKeyModule {
     }
     
     @objc func requestKeyCompleted(notification: Notification) {
-        if let notificationObject = notification.object as? DKeyStay {
+        if let notificationObject = notification.object as? Stay {
             
             delegate?.requestKeyCompleted(stay: notificationObject)
             

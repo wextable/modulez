@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import CoreLibrary
 
 public protocol DKeyDelegate {
     
-    func requestKeyCompleted(stay: DKeyStay)
+    func requestKeyCompleted(stay: Stay)
     
     func requestKeyCancelled()
 }

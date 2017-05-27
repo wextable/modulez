@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		656D9D3E1ED8FB1C001D46F6 /* DKeyDataModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656D9D3D1ED8FB1C001D46F6 /* DKeyDataModelProtocols.swift */; };
 		65DEA2DA1ED66DB8003FAE01 /* ModuleDKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DEA2D01ED66DB8003FAE01 /* ModuleDKey.framework */; };
 		65DEA2DF1ED66DB8003FAE01 /* ModuleDKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEA2DE1ED66DB8003FAE01 /* ModuleDKeyTests.swift */; };
 		65DEA2E11ED66DB8003FAE01 /* ModuleDKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 65DEA2D31ED66DB8003FAE01 /* ModuleDKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,7 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		656D9D3D1ED8FB1C001D46F6 /* DKeyDataModelProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKeyDataModelProtocols.swift; sourceTree = "<group>"; };
 		65DEA2D01ED66DB8003FAE01 /* ModuleDKey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModuleDKey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DEA2D31ED66DB8003FAE01 /* ModuleDKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleDKey.h; sourceTree = "<group>"; };
 		65DEA2D41ED66DB8003FAE01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 			children = (
 				65DEA2D31ED66DB8003FAE01 /* ModuleDKey.h */,
 				65DEA3021ED670B4003FAE01 /* DKeyModule.swift */,
-				656D9D3D1ED8FB1C001D46F6 /* DKeyDataModelProtocols.swift */,
 				65DEA3041ED67190003FAE01 /* DKeyDelegate.swift */,
 				65DEA3061ED67295003FAE01 /* RequestKeyViewController.swift */,
 				65DEA3081ED673D0003FAE01 /* RequestKeySubmissionViewController.swift */,
@@ -231,7 +228,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65DEA3091ED673D0003FAE01 /* RequestKeySubmissionViewController.swift in Sources */,
-				656D9D3E1ED8FB1C001D46F6 /* DKeyDataModelProtocols.swift in Sources */,
 				65DEA3071ED67295003FAE01 /* RequestKeyViewController.swift in Sources */,
 				65DEA3031ED670B4003FAE01 /* DKeyModule.swift in Sources */,
 				65DEA3051ED67190003FAE01 /* DKeyDelegate.swift in Sources */,

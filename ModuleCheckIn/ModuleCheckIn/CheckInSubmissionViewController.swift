@@ -11,7 +11,7 @@ import CoreLibrary
 
 class CheckInSubmissionViewController: UIViewController {
 
-    var stay: CheckInStay!
+    var stay: Stay!
     
     override func viewDidLoad() {
         super.viewDidLoad()
