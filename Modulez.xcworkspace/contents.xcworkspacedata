@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:ModulezApp"
+      name = "ModulezApp">
+      <FileRef
+         location = "group:ModulezApp.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:ModuleStays"
+      name = "ModuleStays">
+      <FileRef
+         location = "group:ModuleStays.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:ModuleDKey"
+      name = "ModuleDKey">
+      <FileRef
+         location = "group:ModuleDKey.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:ModuleCheckIn"
+      name = "ModuleCheckIn">
+      <FileRef
+         location = "group:ModuleCheckIn.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:CoreLibrary"
+      name = "CoreLibrary">
+      <FileRef
+         location = "group:CoreLibrary.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>

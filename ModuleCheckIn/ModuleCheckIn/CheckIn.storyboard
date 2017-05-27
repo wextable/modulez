@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Check In View Controller-->
+        <scene sceneID="KBX-2G-Jua">
+            <objects>
+                <viewController storyboardIdentifier="CheckInViewController" id="1qQ-pb-BId" customClass="CheckInViewController" customModule="ModuleCheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tJe-eM-V8t"/>
+                        <viewControllerLayoutGuide type="bottom" id="uVe-14-YgA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ezS-VC-azY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckInViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ6-rD-Bt8">
+                                <rect key="frame" x="100" y="72" width="174.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab0-ge-pv0">
+                                <rect key="frame" x="143.5" y="150" width="87" height="30"/>
+                                <state key="normal" title="Select Room"/>
+                                <connections>
+                                    <segue destination="JpY-dL-kc5" kind="show" id="X99-bG-RSu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.76862745099999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ab0-ge-pv0" firstAttribute="top" secondItem="VQ6-rD-Bt8" secondAttribute="bottom" constant="57" id="2U6-7b-Bmj"/>
+                            <constraint firstItem="ab0-ge-pv0" firstAttribute="centerX" secondItem="ezS-VC-azY" secondAttribute="centerX" id="6bp-Id-Fzv"/>
+                            <constraint firstItem="VQ6-rD-Bt8" firstAttribute="top" secondItem="tJe-eM-V8t" secondAttribute="bottom" constant="8" id="7od-u5-VB2"/>
+                            <constraint firstItem="VQ6-rD-Bt8" firstAttribute="centerX" secondItem="ezS-VC-azY" secondAttribute="centerX" id="o66-uR-4nI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4Rt-fk-ln2">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="P2K-t0-Ugk">
+                            <connections>
+                                <action selector="cancelCheckIn" destination="1qQ-pb-BId" id="PpQ-d5-erb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5K-Cv-bmL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1" y="107"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZwN-fK-6GW">
+            <objects>
+                <navigationController storyboardIdentifier="CheckInViewControllerNav" id="0FO-ql-mbF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ow7-ve-gyV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1qQ-pb-BId" kind="relationship" relationship="rootViewController" id="QEf-xL-bKM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wud-pS-F4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-694" y="107"/>
+        </scene>
+        <!--Check In Submission View Controller-->
+        <scene sceneID="Zig-yS-30l">
+            <objects>
+                <viewController storyboardIdentifier="CheckInSubmissionViewController" id="JpY-dL-kc5" customClass="CheckInSubmissionViewController" customModule="ModuleCheckIn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aqm-pm-yvc"/>
+                        <viewControllerLayoutGuide type="bottom" id="c9Q-rl-tJx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0pV-Oc-XAA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckInSubmissionViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYR-cx-EqS">
+                                <rect key="frame" x="56.5" y="72" width="262.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDq-aq-HzK">
+                                <rect key="frame" x="131" y="150" width="113" height="30"/>
+                                <state key="normal" title="Submit Check In"/>
+                                <connections>
+                                    <action selector="submitCheckInSender:" destination="JpY-dL-kc5" eventType="touchUpInside" id="I4C-tW-cze"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.93638583369999995" blue="0.70198569690000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gYR-cx-EqS" firstAttribute="top" secondItem="aqm-pm-yvc" secondAttribute="bottom" constant="8" id="8Nq-tL-h2t"/>
+                            <constraint firstItem="gYR-cx-EqS" firstAttribute="centerX" secondItem="0pV-Oc-XAA" secondAttribute="centerX" id="Qpp-J5-w7K"/>
+                            <constraint firstItem="gDq-aq-HzK" firstAttribute="top" secondItem="gYR-cx-EqS" secondAttribute="bottom" constant="57" id="cJN-ev-ZHM"/>
+                            <constraint firstItem="gDq-aq-HzK" firstAttribute="centerX" secondItem="0pV-Oc-XAA" secondAttribute="centerX" id="os7-4m-IKr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jdi-Em-dRu">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="RVS-bc-FhG">
+                            <connections>
+                                <action selector="cancelCheckIn" destination="JpY-dL-kc5" id="SO2-qu-2bL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LnY-Em-UE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="107"/>
+        </scene>
+    </scenes>
+</document>

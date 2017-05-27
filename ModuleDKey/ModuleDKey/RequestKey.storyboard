@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Request Key View Controller-->
+        <scene sceneID="KBX-2G-Jua">
+            <objects>
+                <viewController storyboardIdentifier="CheckInViewController" id="1qQ-pb-BId" customClass="RequestKeyViewController" customModule="ModuleDKey" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tJe-eM-V8t"/>
+                        <viewControllerLayoutGuide type="bottom" id="uVe-14-YgA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ezS-VC-azY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQ6-rD-Bt8">
+                                <rect key="frame" x="139.5" y="72" width="95.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab0-ge-pv0">
+                                <rect key="frame" x="46" y="150" width="282" height="30"/>
+                                <state key="normal" title="Yes, let me use this phone as a mofo key!"/>
+                                <connections>
+                                    <segue destination="JpY-dL-kc5" kind="show" id="la4-85-wjE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVd-If-ADd">
+                                <rect key="frame" x="105" y="254" width="164" height="30"/>
+                                <state key="normal" title="No, I'm afraid of change"/>
+                                <connections>
+                                    <action selector="cancelRequestKey" destination="1qQ-pb-BId" eventType="touchUpInside" id="Xtg-TS-DqM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use your phone as a digital key???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bej-eC-Lf4">
+                                <rect key="frame" x="55.5" y="113" width="263" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ab0-ge-pv0" firstAttribute="top" secondItem="VQ6-rD-Bt8" secondAttribute="bottom" constant="57" id="2U6-7b-Bmj"/>
+                            <constraint firstItem="zVd-If-ADd" firstAttribute="top" secondItem="ab0-ge-pv0" secondAttribute="bottom" constant="74" id="2iX-Yn-aeQ"/>
+                            <constraint firstItem="ab0-ge-pv0" firstAttribute="centerX" secondItem="ezS-VC-azY" secondAttribute="centerX" id="6bp-Id-Fzv"/>
+                            <constraint firstItem="VQ6-rD-Bt8" firstAttribute="top" secondItem="tJe-eM-V8t" secondAttribute="bottom" constant="8" id="7od-u5-VB2"/>
+                            <constraint firstItem="Bej-eC-Lf4" firstAttribute="top" secondItem="VQ6-rD-Bt8" secondAttribute="bottom" constant="20" id="Cuk-jr-xNI"/>
+                            <constraint firstItem="Bej-eC-Lf4" firstAttribute="centerX" secondItem="ezS-VC-azY" secondAttribute="centerX" id="ETV-Jm-Oui"/>
+                            <constraint firstItem="zVd-If-ADd" firstAttribute="centerX" secondItem="ezS-VC-azY" secondAttribute="centerX" id="UAB-Uj-IYY"/>
+                            <constraint firstItem="VQ6-rD-Bt8" firstAttribute="centerX" secondItem="ezS-VC-azY" secondAttribute="centerX" id="o66-uR-4nI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4Rt-fk-ln2">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="P2K-t0-Ugk">
+                            <connections>
+                                <action selector="cancelRequestKey" destination="1qQ-pb-BId" id="B0i-2R-55j"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="VQ6-rD-Bt8" id="rg8-tM-mkF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5K-Cv-bmL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1" y="107"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZwN-fK-6GW">
+            <objects>
+                <navigationController storyboardIdentifier="RequestKeyViewControllerNav" id="0FO-ql-mbF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ow7-ve-gyV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1qQ-pb-BId" kind="relationship" relationship="rootViewController" id="QEf-xL-bKM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wud-pS-F4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-694" y="107"/>
+        </scene>
+        <!--Request Key Submission View Controller-->
+        <scene sceneID="Zig-yS-30l">
+            <objects>
+                <viewController storyboardIdentifier="RequestKeySubmissionViewController" id="JpY-dL-kc5" customClass="RequestKeySubmissionViewController" customModule="ModuleDKey" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aqm-pm-yvc"/>
+                        <viewControllerLayoutGuide type="bottom" id="c9Q-rl-tJx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0pV-Oc-XAA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RequestKeySubmissionViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYR-cx-EqS">
+                                <rect key="frame" x="42.5" y="72" width="291" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDq-aq-HzK">
+                                <rect key="frame" x="143.5" y="150" width="88" height="30"/>
+                                <state key="normal" title="Get that key!"/>
+                                <connections>
+                                    <action selector="submitRequestKeyWithSender:" destination="JpY-dL-kc5" eventType="touchUpInside" id="52P-i1-Nfk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gYR-cx-EqS" firstAttribute="top" secondItem="aqm-pm-yvc" secondAttribute="bottom" constant="8" id="8Nq-tL-h2t"/>
+                            <constraint firstItem="gYR-cx-EqS" firstAttribute="centerX" secondItem="0pV-Oc-XAA" secondAttribute="centerX" id="Qpp-J5-w7K"/>
+                            <constraint firstItem="gDq-aq-HzK" firstAttribute="top" secondItem="gYR-cx-EqS" secondAttribute="bottom" constant="57" id="cJN-ev-ZHM"/>
+                            <constraint firstItem="gDq-aq-HzK" firstAttribute="centerX" secondItem="0pV-Oc-XAA" secondAttribute="centerX" id="os7-4m-IKr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jdi-Em-dRu">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="RVS-bc-FhG">
+                            <connections>
+                                <action selector="cancelRequestKey" destination="JpY-dL-kc5" id="N1E-AD-g3z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LnY-Em-UE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="107"/>
+        </scene>
+    </scenes>
+</document>
