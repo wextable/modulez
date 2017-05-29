@@ -16,6 +16,13 @@
       </FileRef>
    </Group>
    <Group
+      location = "group:ModuleDKeyWithOnlyTravelDocs"
+      name = "ModuleDKeyWithOnlyTravelDocs">
+      <FileRef
+         location = "group:ModuleDKeyWithOnlyTravelDocs.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
       location = "group:ModuleDKey"
       name = "ModuleDKey">
       <FileRef

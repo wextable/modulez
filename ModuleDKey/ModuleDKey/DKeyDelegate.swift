@@ -11,6 +11,9 @@ import CoreLibrary
 
 public protocol DKeyDelegate {
     
+    // Once the entire S2R/DK module is extracted to the pod, this will be handled internally
+    func travelDocsViewController(for stay: Stay, completion: (UIViewController?) ->  Void)
+    
     func requestKeyCompleted(stay: Stay)
     
     func requestKeyCancelled()

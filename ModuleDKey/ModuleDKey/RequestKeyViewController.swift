@@ -28,15 +28,41 @@ class RequestKeyViewController: UIViewController {
         super.viewDidLoad()
 
         welcomeLabel.text = welcomeMessage
-    }    
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         
-        if let vc = segue.destination as? RequestKeySubmissionViewController {
-            vc.stay = stay
+        NotificationCenter.default.addObserver(self, selector: #selector(RequestKeyViewController.gotInitialTravelDocsViewController(notification:)), name: NSNotification.Name(rawValue: InitialTravelDocsViewControllerNotificationName), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RequestKeyViewController.travelDocsCompleted(notification:)), name: NSNotification.Name(rawValue: TravelDocsCompletedNotificationName), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RequestKeyViewController.travelDocsCancelled(notification:)), name: NSNotification.Name(rawValue: TravelDocsCancelledNotificationName), object: nil)
+    }
+    
+    @IBAction private func startTravelDocsFlow(sender: UIButton) {
+        print("Checking to see if we need Travel Docs")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: StartTravelDocsFlowNotificationName), object: stay)
+        
+    }
+    
+    @objc func gotInitialTravelDocsViewController(notification: Notification) {
+        if let notificationObject = notification.object as? UIViewController {
+            print("We got a Travel Docs VC, so pushing it...")
+            navigationController?.pushViewController(notificationObject, animated: true)
+        } else {
+            // We can skip travel docs, so go straight to submission
+            print("We did NOT get a Travel Docs VC, so skipping to submission...")
+            let requestKeySubmissionVC = RequestKeySubmissionViewController.requestKeySubmissionController(for: stay)
+            navigationController?.pushViewController(requestKeySubmissionVC, animated: true)
         }
+    }
+
+    @objc func travelDocsCompleted(notification: Notification) {
+        print("Done with travel docs, so go to submission")
+        let requestKeySubmissionVC = RequestKeySubmissionViewController.requestKeySubmissionController(for: stay)
+        navigationController?.pushViewController(requestKeySubmissionVC, animated: true)
+    }
+    
+    @objc func travelDocsCancelled(notification: Notification) {
+        print("They cancelled Travel Docs VC, so let's pop")
+        navigationController?.popViewController(animated: true)
     }
 
 }

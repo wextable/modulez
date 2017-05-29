@@ -56,6 +56,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "65F9F0E21EDA477C00930343"
+               BuildableName = "ModuleDKeyWithOnlyTravelDocs.framework"
+               BlueprintName = "ModuleDKeyWithOnlyTravelDocs"
+               ReferencedContainer = "container:ModuleDKeyWithOnlyTravelDocs/ModuleDKeyWithOnlyTravelDocs.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "65DEA3151ED67F4E003FAE01"
                BuildableName = "ModuleStays.framework"
                BlueprintName = "ModuleStays"

@@ -30,6 +30,7 @@ class CheckInViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         if let vc = segue.destination as? CheckInSubmissionViewController {
+            print("Selected a room, pushing to Check In Submission  ")
             vc.stay = stay
         }
     }

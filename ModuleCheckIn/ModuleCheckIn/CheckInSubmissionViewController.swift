@@ -26,6 +26,7 @@ class CheckInSubmissionViewController: UIViewController {
         let checkInTime = "4pm"
         
         if didSucceed {
+            print("Check in completed!")
             dismiss(animated: true, completion: nil)
             let notificationObject = CheckInCompletedNotification(stay: stay, checkInTime: checkInTime, isUpgrade: isUpgrade)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: CheckInCompletedNotificationName), object: notificationObject)

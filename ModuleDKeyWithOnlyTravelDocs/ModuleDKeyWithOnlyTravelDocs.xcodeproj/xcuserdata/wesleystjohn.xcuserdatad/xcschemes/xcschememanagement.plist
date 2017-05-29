@@ -4,20 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ModuleStays.xcscheme</key>
+		<key>ModuleDKeyWithOnlyTravelDocs.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>65DEA3151ED67F4E003FAE01</key>
+		<key>65F9F0E21EDA477C00930343</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65DEA31E1ED67F4E003FAE01</key>
+		<key>65F9F0EB1EDA477C00930343</key>
 		<dict>
 			<key>primary</key>
 			<true/>

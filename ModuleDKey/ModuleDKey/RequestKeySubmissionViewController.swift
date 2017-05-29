@@ -13,6 +13,13 @@ class RequestKeySubmissionViewController: UIViewController {
 
     var stay: Stay!
     
+    static func requestKeySubmissionController(for stay: Stay) -> UIViewController {
+        let storyboard = UIStoryboard(name: "RequestKey", bundle: Bundle(for: self))
+        let vc = storyboard.instantiateViewController(withIdentifier :"RequestKeySubmissionViewController") as! RequestKeySubmissionViewController
+        vc.stay = stay
+        return vc
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +31,7 @@ class RequestKeySubmissionViewController: UIViewController {
         let didSucceed = true
         
         if didSucceed {
+            print("Request Key succeeded!")
             dismiss(animated: true, completion: nil)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: RequestKeyCompletedNotificationName), object: stay)
         } else {

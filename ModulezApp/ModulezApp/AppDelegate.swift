@@ -10,6 +10,7 @@ import UIKit
 import CoreLibrary
 import ModuleCheckIn
 import ModuleDKey
+import ModuleDKeyWithOnlyTravelDocs
 import ModuleStays
 
 @UIApplicationMain
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var checkInModule: CheckInModule!
     var dKeyModule: DKeyModule!
+    var dKeyWithOnlyTravelDocsModule: DKeyTravelDocsModule!
     var staysModule: StaysModule!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -32,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupModules() {
         setupCheckInModule()
         setupDKeyModule()
+        setupDKeyWithOnlyTravelDocsModule()
         setupStaysModule()
     }
     
@@ -43,6 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupDKeyModule() {
         dKeyModule =  DKeyModule(urlString: "whatevs")
         dKeyModule.delegate = self
+    }
+
+    func setupDKeyWithOnlyTravelDocsModule() {
+        dKeyWithOnlyTravelDocsModule =  DKeyTravelDocsModule(urlString: "whatevs")
+        dKeyWithOnlyTravelDocsModule.delegate = self
+        dKeyWithOnlyTravelDocsModule.apiDelegate = self
     }
     
     func setupStaysModule() {
@@ -59,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func stubInitialVC() {
-        let hotel = Hotel(ctyhocn: "DCAOTHF", name: "Hilton Alexandria", isDKeyEnabled: false)
+        let hotel = Hotel(ctyhocn: "DCAOTHF", name: "Hilton Alexandria", isDKeyEnabled: true)
         let stay = Stay(confirmationNumber: "12345678", hotel: hotel)
         let stayCardVC = staysModule.launchStayCard(for: stay)
         if let w = window {
@@ -68,6 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+// MARK: CheckInDelegate
 
 extension AppDelegate: CheckInDelegate {
     
@@ -81,9 +92,11 @@ extension AppDelegate: CheckInDelegate {
             var vc: UIViewController?
             
             if stay.hotel.isDKeyEnabled {
+                print("Stay is DKey enabled, so let's push the Request Key VC")
                 vc = dKeyModule.launchRequestKey(for: stay, welcomeMessage: welcomeMessage)
                 
             } else {
+                print("Stay is NOT DKey enabled, so show the check in complete message")
                 vc = MessageViewController.messageController(message: welcomeMessage)
             }
             if let vc = vc {
@@ -119,7 +132,17 @@ extension AppDelegate: CheckInDelegate {
 
 }
 
+
+// MARK: DKeyDelegate
+
 extension AppDelegate: DKeyDelegate {
+    
+    public func travelDocsViewController(for stay: Stay, completion: (UIViewController?) ->  Void) {
+        dKeyWithOnlyTravelDocsModule.initialTravelDocsViewController(for: stay) { viewController in
+            completion(viewController)
+        }
+    }
+    
     public func requestKeyCompleted(stay: Stay) {
         if let rvc = rootVC() {
             let message = "Hells yeah, we'll get that key for your stay at \(stay.hotel.name), bro!"
@@ -133,12 +156,38 @@ extension AppDelegate: DKeyDelegate {
     }
 }
 
+
+// MARK: DKeyTravelDocsDelegate
+
+extension AppDelegate: DKeyTravelDocsDelegate {
+    public func travelDocsCompleted(stay: Stay) {
+        
+    }
+
+    public func travelDocsCancelled() {
+//        dKeyModule.travelDocs
+    }
+}
+
+
+// MARK: DKeyTravelDocsAPIDelegate
+
+extension AppDelegate: DKeyTravelDocsAPIDelegate {
+    public func getTravelDocsForHotel(ctyhocn: String, completion: (JSONDictionaryType?, APIClientError?) -> Void) {
+        // Pretend to call function in HiltonAPIClient+S2R and then execute completion closure
+        completion(["travelDocs": "awesome"], nil)
+    }
+    
+}
+
+
+// MARK: StaysDelegate
+
 extension AppDelegate: StaysDelegate {
     public func launchCheckIn(for stay: Stay) {
-        if let rvc = rootVC(){//,
-            let checkInStay = stay as! Stay// {
+        if let rvc = rootVC() {
             
-            let checkInVC = checkInModule.launchCheckIn(for: checkInStay)
+            let checkInVC = checkInModule.launchCheckIn(for: stay)
             rvc.present(checkInVC, animated: true) {
                 print("Presented Check In flow")
             }

@@ -17,6 +17,7 @@
 		65DEA29A1ED66980003FAE01 /* CoreLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DEA2991ED66980003FAE01 /* CoreLibrary.framework */; };
 		65DEA2FE1ED66E00003FAE01 /* ModuleDKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DEA2FD1ED66E00003FAE01 /* ModuleDKey.framework */; };
 		65DEA33C1ED6831A003FAE01 /* ModuleStays.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DEA33B1ED6831A003FAE01 /* ModuleStays.framework */; };
+		65F9F1011EDA47DD00930343 /* ModuleDKeyWithOnlyTravelDocs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F9F1001EDA47DD00930343 /* ModuleDKeyWithOnlyTravelDocs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		65DEA2C41ED66D1E003FAE01 /* ModuleDKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModuleDKey.framework; path = "../ModuleDKey/build/Debug-iphoneos/ModuleDKey.framework"; sourceTree = "<group>"; };
 		65DEA2FD1ED66E00003FAE01 /* ModuleDKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModuleDKey.framework; path = "../ModuleDKey/build/Debug-iphoneos/ModuleDKey.framework"; sourceTree = "<group>"; };
 		65DEA33B1ED6831A003FAE01 /* ModuleStays.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModuleStays.framework; path = "../ModuleStays/build/Debug-iphoneos/ModuleStays.framework"; sourceTree = "<group>"; };
+		65F9F1001EDA47DD00930343 /* ModuleDKeyWithOnlyTravelDocs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModuleDKeyWithOnlyTravelDocs.framework; path = "../ModuleDKeyWithOnlyTravelDocs/build/Debug-iphoneos/ModuleDKeyWithOnlyTravelDocs.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				65DEA29A1ED66980003FAE01 /* CoreLibrary.framework in Frameworks */,
 				65DEA2651ED63065003FAE01 /* ModuleCheckIn.framework in Frameworks */,
 				65DEA2FE1ED66E00003FAE01 /* ModuleDKey.framework in Frameworks */,
+				65F9F1011EDA47DD00930343 /* ModuleDKeyWithOnlyTravelDocs.framework in Frameworks */,
 				65DEA33C1ED6831A003FAE01 /* ModuleStays.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +142,7 @@
 		65DEA2631ED63065003FAE01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65F9F1001EDA47DD00930343 /* ModuleDKeyWithOnlyTravelDocs.framework */,
 				65DEA33B1ED6831A003FAE01 /* ModuleStays.framework */,
 				65DEA2FD1ED66E00003FAE01 /* ModuleDKey.framework */,
 				65DEA2C41ED66D1E003FAE01 /* ModuleDKey.framework */,
