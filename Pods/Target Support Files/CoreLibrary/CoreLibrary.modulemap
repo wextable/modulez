@@ -1,0 +1,6 @@
+framework module CoreLibrary {
+  umbrella header "CoreLibrary-umbrella.h"
+
+  export *
+  module * { export * }
+}

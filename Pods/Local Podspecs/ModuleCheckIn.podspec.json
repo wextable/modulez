@@ -1,0 +1,27 @@
+{
+  "name": "ModuleCheckIn",
+  "version": "0.1.0",
+  "license": {
+    "type": "MF"
+  },
+  "summary": "ModuleCheckIn",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "homepage": "https://github.com/wextable/modulez",
+  "source": {
+    "git": "https://github.com/wextable/modulez"
+  },
+  "authors": {
+    "Developers": "iOSDev@mobileforming.com"
+  },
+  "source_files": "ModuleCheckIn/*.swift",
+  "resources": [
+    "ModuleCheckIn/*.storyboard"
+  ],
+  "dependencies": {
+    "CoreLibrary": [
+
+    ]
+  }
+}

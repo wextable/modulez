@@ -1,0 +1,6 @@
+framework module ModuleDKeyWithOnlyTravelDocs {
+  umbrella header "ModuleDKeyWithOnlyTravelDocs-umbrella.h"
+
+  export *
+  module * { export * }
+}

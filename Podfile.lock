@@ -1,0 +1,40 @@
+PODS:
+  - CoreLibrary (0.1.0)
+  - ModuleCheckIn (0.1.0):
+    - CoreLibrary
+  - ModuleDKey (0.1.0):
+    - CoreLibrary
+  - ModuleDKeyWithOnlyTravelDocs (0.1.0):
+    - CoreLibrary
+  - ModuleStays (0.1.0):
+    - CoreLibrary
+
+DEPENDENCIES:
+  - CoreLibrary (from `CoreLibrary`)
+  - ModuleCheckIn (from `ModuleCheckIn`)
+  - ModuleDKey (from `ModuleDKey`)
+  - ModuleDKeyWithOnlyTravelDocs (from `ModuleDKeyWithOnlyTravelDocs`)
+  - ModuleStays (from `ModuleStays`)
+
+EXTERNAL SOURCES:
+  CoreLibrary:
+    :path: CoreLibrary
+  ModuleCheckIn:
+    :path: ModuleCheckIn
+  ModuleDKey:
+    :path: ModuleDKey
+  ModuleDKeyWithOnlyTravelDocs:
+    :path: ModuleDKeyWithOnlyTravelDocs
+  ModuleStays:
+    :path: ModuleStays
+
+SPEC CHECKSUMS:
+  CoreLibrary: d86922fd661714d2966ade5d800251c80719ed7d
+  ModuleCheckIn: 9a6d00ebaba30b7bf50c1152ef1a0e69554ee39a
+  ModuleDKey: d4a6c56bf009d96e07feef03529695e967e49957
+  ModuleDKeyWithOnlyTravelDocs: ece77d1202f66d9314f544207e62f2a2087275d6
+  ModuleStays: 7177385d4a6d1c8397dc559d3783ea364718275e
+
+PODFILE CHECKSUM: e4f951d6b65a8bf86079ac9d5fbb364ca201b4e3
+
+COCOAPODS: 1.2.1

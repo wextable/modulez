@@ -1,0 +1,6 @@
+framework module ModuleDKey {
+  umbrella header "ModuleDKey-umbrella.h"
+
+  export *
+  module * { export * }
+}
