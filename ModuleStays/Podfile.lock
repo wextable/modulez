@@ -1,0 +1,16 @@
+PODS:
+  - CoreLibrary (0.1.0)
+
+DEPENDENCIES:
+  - CoreLibrary (from `../CoreLibrary`)
+
+EXTERNAL SOURCES:
+  CoreLibrary:
+    :path: ../CoreLibrary
+
+SPEC CHECKSUMS:
+  CoreLibrary: d86922fd661714d2966ade5d800251c80719ed7d
+
+PODFILE CHECKSUM: e571e1f12446eb0882b9df3029320e798e9ea0cc
+
+COCOAPODS: 1.2.1
