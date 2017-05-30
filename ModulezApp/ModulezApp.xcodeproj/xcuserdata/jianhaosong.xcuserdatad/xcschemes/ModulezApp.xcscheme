@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,80 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65DEA2761ED66901003FAE01"
-               BuildableName = "CoreLibrary.framework"
-               BlueprintName = "CoreLibrary"
-               ReferencedContainer = "container:CoreLibrary/CoreLibrary.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65DEA23A1ED62C0B003FAE01"
-               BuildableName = "ModuleCheckIn.framework"
-               BlueprintName = "ModuleCheckIn"
-               ReferencedContainer = "container:ModuleCheckIn/ModuleCheckIn.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65DEA2CF1ED66DB8003FAE01"
-               BuildableName = "ModuleDKey.framework"
-               BlueprintName = "ModuleDKey"
-               ReferencedContainer = "container:ModuleDKey/ModuleDKey.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65F9F0E21EDA477C00930343"
-               BuildableName = "ModuleDKeyWithOnlyTravelDocs.framework"
-               BlueprintName = "ModuleDKeyWithOnlyTravelDocs"
-               ReferencedContainer = "container:ModuleDKeyWithOnlyTravelDocs/ModuleDKeyWithOnlyTravelDocs.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65DEA3151ED67F4E003FAE01"
-               BuildableName = "ModuleStays.framework"
-               BlueprintName = "ModuleStays"
-               ReferencedContainer = "container:ModuleStays/ModuleStays.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "65DEA1DB1ED62B5E003FAE01"
                BuildableName = "ModulezApp.app"
                BlueprintName = "ModulezApp"
-               ReferencedContainer = "container:ModulezApp/ModulezApp.xcodeproj">
+               ReferencedContainer = "container:ModulezApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -105,7 +35,7 @@
                BlueprintIdentifier = "65DEA1EF1ED62B5E003FAE01"
                BuildableName = "ModulezAppTests.xctest"
                BlueprintName = "ModulezAppTests"
-               ReferencedContainer = "container:ModulezApp/ModulezApp.xcodeproj">
+               ReferencedContainer = "container:ModulezApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -115,7 +45,7 @@
                BlueprintIdentifier = "65DEA1FA1ED62B5E003FAE01"
                BuildableName = "ModulezAppUITests.xctest"
                BlueprintName = "ModulezAppUITests"
-               ReferencedContainer = "container:ModulezApp/ModulezApp.xcodeproj">
+               ReferencedContainer = "container:ModulezApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -125,7 +55,7 @@
             BlueprintIdentifier = "65DEA1DB1ED62B5E003FAE01"
             BuildableName = "ModulezApp.app"
             BlueprintName = "ModulezApp"
-            ReferencedContainer = "container:ModulezApp/ModulezApp.xcodeproj">
+            ReferencedContainer = "container:ModulezApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -148,7 +78,7 @@
             BlueprintIdentifier = "65DEA1DB1ED62B5E003FAE01"
             BuildableName = "ModulezApp.app"
             BlueprintName = "ModulezApp"
-            ReferencedContainer = "container:ModulezApp/ModulezApp.xcodeproj">
+            ReferencedContainer = "container:ModulezApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -167,7 +97,7 @@
             BlueprintIdentifier = "65DEA1DB1ED62B5E003FAE01"
             BuildableName = "ModulezApp.app"
             BlueprintName = "ModulezApp"
-            ReferencedContainer = "container:ModulezApp/ModulezApp.xcodeproj">
+            ReferencedContainer = "container:ModulezApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
