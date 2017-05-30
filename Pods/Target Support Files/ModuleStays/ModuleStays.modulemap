@@ -1,6 +1,0 @@
-framework module ModuleStays {
-  umbrella header "ModuleStays-umbrella.h"
-
-  export *
-  module * { export * }
-}
