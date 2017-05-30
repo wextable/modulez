@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var dKeyModule: DKeyModule!
     var dKeyWithOnlyTravelDocsModule: DKeyTravelDocsModule!
     var staysModule: StaysModule!
+    var apiClient: APIClient = APIClient()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -49,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func setupDKeyWithOnlyTravelDocsModule() {
-        dKeyWithOnlyTravelDocsModule =  DKeyTravelDocsModule(urlString: "whatevs")
+        dKeyWithOnlyTravelDocsModule = DKeyTravelDocsModule(urlString: "whatevs")
         dKeyWithOnlyTravelDocsModule.delegate = self
         dKeyWithOnlyTravelDocsModule.apiDelegate = self
     }
@@ -174,10 +175,34 @@ extension AppDelegate: DKeyTravelDocsDelegate {
 
 extension AppDelegate: DKeyTravelDocsAPIDelegate {
     public func getTravelDocsForHotel(ctyhocn: String, completion: (JSONDictionaryType?, APIClientError?) -> Void) {
-        // Pretend to call function in HiltonAPIClient+S2R and then execute completion closure
-        completion(["travelDocs": "awesome"], nil)
+        let response = apiClient.getTravelDocForms(ctyhocn: ctyhocn)
+        completion(response, nil)
     }
     
+    public func retrieveTravelDocsForGuest(honorsId: String, confirmationNumber: String, completion: APIClientResponseClosure) {
+        let response = apiClient.getTravelDocForGuest(honorsId: honorsId, confirmNum: confirmationNumber)
+        completion(response, nil)
+    }
+    
+    func createTravelDocsForGuest(honorsId: String, confirmationNumber: String, primaryGuestInfo: [String: Any], additionalGuestsInfo: [String: Any]?, completion: APIClientResponseClosure) {
+        let response = apiClient.postTravelDocsForGuest(honorsId: honorsId, confirmNum: confirmationNumber, primaryGuestInfo: primaryGuestInfo, additionalGuestsInfo: additionalGuestsInfo)
+        completion(response, nil)
+    }
+    
+    func modifyTravelDocsForGuest(honorsId: String, confirmationNumber: String, primaryGuestInfo: [String: Any], additionalGuestsInfo: [String: Any]?, completion: APIClientResponseClosure) {
+        let response = apiClient.putTravelDocsForGuest(honorsId: honorsId, confirmNum: confirmationNumber, primaryGuestInfo: primaryGuestInfo, additionalGuestsInfo: additionalGuestsInfo)
+        completion(response, nil)
+    }
+    
+    func createTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String: Any], completion: APIClientResponseClosure) {
+        let response = apiClient.postTravelDocsForPrimaryGuest(honorsId: honorsId, primaryGuestInfo: primaryGuestInfo)
+        completion(response, nil)
+    }
+    
+    func modifyTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String: Any], completion: APIClientResponseClosure) {
+        let response = apiClient.putTravelDocsForPrimaryGuest(honorsId: honorsId, primaryGuestInfo: primaryGuestInfo)
+        completion(response, nil)
+    }
 }
 
 

@@ -16,6 +16,7 @@
 		65DEA29C1ED669F1003FAE01 /* ModuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEA29B1ED669F1003FAE01 /* ModuleProtocol.swift */; };
 		65DEA3401ED68D8F003FAE01 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DEA33F1ED68D8F003FAE01 /* MessageViewController.swift */; };
 		65DEA3421ED68DE4003FAE01 /* CoreLibrary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65DEA3411ED68DE4003FAE01 /* CoreLibrary.storyboard */; };
+		F2B9D8691EDD025B004E5D17 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B9D8681EDD025B004E5D17 /* Member.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		65DEA29B1ED669F1003FAE01 /* ModuleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleProtocol.swift; sourceTree = "<group>"; };
 		65DEA33F1ED68D8F003FAE01 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		65DEA3411ED68DE4003FAE01 /* CoreLibrary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CoreLibrary.storyboard; sourceTree = "<group>"; };
+		F2B9D8681EDD025B004E5D17 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				65DEA2911ED6693A003FAE01 /* CreditCard.swift */,
 				65DEA2921ED6693A003FAE01 /* Hotel.swift */,
 				65DEA2931ED6693A003FAE01 /* Stay.swift */,
+				F2B9D8681EDD025B004E5D17 /* Member.swift */,
 				65DEA33F1ED68D8F003FAE01 /* MessageViewController.swift */,
 				65DEA27B1ED66901003FAE01 /* Info.plist */,
 				65DEA3411ED68DE4003FAE01 /* CoreLibrary.storyboard */,
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65DEA2961ED6693A003FAE01 /* Stay.swift in Sources */,
+				F2B9D8691EDD025B004E5D17 /* Member.swift in Sources */,
 				65DEA2951ED6693A003FAE01 /* Hotel.swift in Sources */,
 				65DEA2941ED6693A003FAE01 /* CreditCard.swift in Sources */,
 				65DEA29C1ED669F1003FAE01 /* ModuleProtocol.swift in Sources */,

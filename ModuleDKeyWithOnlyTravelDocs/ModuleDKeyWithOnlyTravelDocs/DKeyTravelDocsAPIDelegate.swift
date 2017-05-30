@@ -26,7 +26,12 @@ public protocol DKeyTravelDocsAPIDelegate {
     
     func getTravelDocsForHotel(ctyhocn: String, completion: APIClientResponseClosure)
     
-    //func getTravelDocsForStay(ctyhocn: String, completion: APIClientResponseClosure)
-    //func submitTravelDocsForStay(ctyhocn: String, completion: APIClientResponseClosure)
-    //func getTravelDocsCountryLookup(completion: APIClientResponseClosure)
+    //travel docs for stay
+    func retrieveTravelDocsForGuest(honorsId: String, confirmationNumber: String, completion: APIClientResponseClosure)
+    func createTravelDocsForGuest(honorsId: String, confirmationNumber: String, primaryGuestInfo: [String: Any], additionalGuestsInfo: [String: Any]?, completion: APIClientResponseClosure)
+    func modifyTravelDocsForGuest(honorsId: String, confirmationNumber: String, primaryGuestInfo: [String: Any], additionalGuestsInfo: [String: Any]?, completion: APIClientResponseClosure)
+    
+    //save to memberAccount
+    func createTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String: Any], completion: APIClientResponseClosure)
+    func modifyTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String: Any], completion: APIClientResponseClosure)
 }
