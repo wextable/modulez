@@ -17,14 +17,11 @@ class RequestKeyViewController: UIViewController {
     
     @IBOutlet var welcomeLabel: UILabel!
     
-    static func requestKeyController(for stayId: String, ctyhocn: String, honorsId: String, welcomeMessage: String) -> UIViewController {
+    static func requestKeyController(for stay: Stay, honorsId: String, welcomeMessage: String) -> UIViewController {
         let storyboard = UIStoryboard(name: "RequestKey", bundle: Bundle(for: self))
         let navVC = storyboard.instantiateViewController(withIdentifier :"RequestKeyViewControllerNav") as! UINavigationController
         let vc = navVC.topViewController as! RequestKeyViewController
     
-        let stay = Stay()
-        stay.stayId = stayId
-        stay.hotel.ctyhocn = ctyhocn
         vc.stay = stay
         vc.honorsId = honorsId
         vc.welcomeMessage = welcomeMessage
@@ -38,15 +35,15 @@ class RequestKeyViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(RequestKeyViewController.gotInitialTravelDocsViewController(notification:)), name: NSNotification.Name(rawValue: InitialTravelDocsViewControllerNotificationName), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(RequestKeyViewController.travelDocsCompleted(notification:)), name: NSNotification.Name(rawValue: TravelDocsCompletedNotificationName), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RequestKeyViewController.readyToSubmitRequestKey(notification:)), name: NSNotification.Name(rawValue: ReadyToSubmitRequestKeyNotificationName), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(RequestKeyViewController.travelDocsCancelled(notification:)), name: NSNotification.Name(rawValue: TravelDocsCancelledNotificationName), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RequestKeyViewController.readyToOptInForRequestKey(notification:)), name: NSNotification.Name(rawValue: ReadyToOptInForRequestKeyNotificationName), object: nil)
     }
     
     @IBAction private func startTravelDocsFlow(sender: UIButton) {
         print("Checking to see if we need Travel Docs")
         
-        let travelDocData: [String: Any] = ["honorsId": honorsId, "stayId": stay.stayId, "ctyhocn": stay.hotel.ctyhocn]
+        let travelDocData: [String: Any] = ["honorsId": honorsId, "stayId": stay.segments.first!.stayId, "ctyhocn": stay.hotel.ctyhocn]
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: StartTravelDocsFlowNotificationName), object: nil, userInfo: travelDocData)
     }
@@ -63,13 +60,13 @@ class RequestKeyViewController: UIViewController {
         }
     }
 
-    @objc func travelDocsCompleted(notification: Notification) {
+    @objc func readyToSubmitRequestKey(notification: Notification) {
         print("Done with travel docs, so go to submission")
         let requestKeySubmissionVC = RequestKeySubmissionViewController.requestKeySubmissionController(for: stay)
         navigationController?.pushViewController(requestKeySubmissionVC, animated: true)
     }
     
-    @objc func travelDocsCancelled(notification: Notification) {
+    @objc func readyToOptInForRequestKey(notification: Notification) {
         print("They cancelled Travel Docs VC, so let's pop")
         navigationController?.popViewController(animated: true)
     }

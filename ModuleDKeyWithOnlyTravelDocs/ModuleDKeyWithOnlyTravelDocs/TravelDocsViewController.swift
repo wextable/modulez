@@ -11,16 +11,12 @@ import CoreLibrary
 
 class TravelDocsViewController: UIViewController {
 
-    var stay: Stay!
-    var existingTravelDocsInfo: JSONDictionaryType?
+    var travelDocsForm: TravelDocsForm!
     
-    static func travelDocsController(honorsId: String, stayId: String, ctyhocn: String, existingTD: JSONDictionaryType) -> UIViewController {
+    static func travelDocsController(travelDocsForm: TravelDocsForm) -> UIViewController {
         let storyboard = UIStoryboard(name: "TravelDocs", bundle: Bundle(for: self))
         let vc = storyboard.instantiateViewController(withIdentifier :"TravelDocsViewController") as! TravelDocsViewController
-        let stay = Stay()
-        stay.stayId = stayId
-        stay.hotel.ctyhocn = ctyhocn
-        vc.stay = stay
+        vc.travelDocsForm = travelDocsForm
         return vc
     }
     
@@ -35,7 +31,7 @@ class TravelDocsViewController: UIViewController {
         
         if didSucceed {
             print("Travel Docs submitted")
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: TravelDocsCompletedNotificationName), object: stay)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: TravelDocsCompletedNotificationName), object: nil)
         } else {
             print("Error trying to submit travel docs")
         }
@@ -48,7 +44,8 @@ class TravelDocsViewController: UIViewController {
         
         if let vc = segue.destination as? TravelDocsFormViewController {
             print("Entering guest info")
-            vc.stay = stay
+            vc.travelDocsForm = travelDocsForm
+            vc.guestId = "1"
         }
     }
     
@@ -58,8 +55,6 @@ class TravelDocsViewController: UIViewController {
 // This is just for convenience in this demo app
 extension UIViewController {
     @IBAction func cancelTravelDocs() {
-        dismiss(animated: true) {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: TravelDocsCompletedNotificationName), object: nil)
-        }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TravelDocsCancelledNotificationName), object: nil)
     }
 }

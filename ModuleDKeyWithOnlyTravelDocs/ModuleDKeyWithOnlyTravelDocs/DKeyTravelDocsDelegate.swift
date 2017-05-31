@@ -11,7 +11,7 @@ import CoreLibrary
 
 public protocol DKeyTravelDocsDelegate {
     
-    func travelDocsCompleted(stay: Stay)
+    func travelDocsCompleted()
     
     func travelDocsCancelled()
 

@@ -11,8 +11,8 @@ import CoreLibrary
 
 let StartTravelDocsFlowNotificationName = "StartTravelDocsFlowNotificationName"
 let InitialTravelDocsViewControllerNotificationName = "InitialTravelDocsViewControllerNotificationName"
-let TravelDocsCompletedNotificationName = "TravelDocsCompletedNotificationName"
-let TravelDocsCancelledNotificationName = "TravelDocsCancelledNotificationName"
+let ReadyToSubmitRequestKeyNotificationName = "ReadyToSubmitRequestKeyNotificationName"
+let ReadyToOptInForRequestKeyNotificationName = "ReadyToOptInForRequestKeyNotificationName"
 let RequestKeyCompletedNotificationName = "RequestKeyCompletedNotificationName"
 
 public class DKeyModule {
@@ -34,19 +34,19 @@ public class DKeyModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func launchRequestKey(_ stayId: String, ctyhocn: String, honorsId: String, welcomeMessage: String?) -> UIViewController {
+    public func launchRequestKey(stay: Stay, honorsId: String, welcomeMessage: String?) -> UIViewController {
         let message = welcomeMessage ?? "Digital keys are the best"
         
-        let initialRequestKeyVC = RequestKeyViewController.requestKeyController(for: stayId, ctyhocn: ctyhocn, honorsId: honorsId, welcomeMessage: message)
+        let initialRequestKeyVC = RequestKeyViewController.requestKeyController(for: stay, honorsId: honorsId, welcomeMessage: message)
         return initialRequestKeyVC
     }
     
-    public func travelDocsCompleted() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TravelDocsCompletedNotificationName), object: nil)
+    public func readyToSubmitRequestKey() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: ReadyToSubmitRequestKeyNotificationName), object: nil)
     }
     
-    public func travelDocsCancelled() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TravelDocsCancelledNotificationName), object: nil)
+    public func readyToOptInForRequestKey() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: ReadyToOptInForRequestKeyNotificationName), object: nil)
     }
     
     @objc func startTravelDocsFlow(notification: Notification) {

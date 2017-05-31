@@ -10,9 +10,9 @@ import UIKit
 import CoreLibrary
 
 class TravelDocsFormViewController: UIViewController {
-
-    var stay: Stay!
-
+    
+    var travelDocsForm: TravelDocsForm!
+    var guestId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()

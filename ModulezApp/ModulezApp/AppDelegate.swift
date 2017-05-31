@@ -95,7 +95,7 @@ extension AppDelegate: CheckInDelegate {
             
             if stay.hotel.isDKeyEnabled {
                 print("Stay is DKey enabled, so let's push the Request Key VC")
-                vc = dKeyModule.launchRequestKey(stay.stayId, ctyhocn: stay.hotel.ctyhocn, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
+                vc = dKeyModule.launchRequestKey(stay: stay, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
                 
             } else {
                 print("Stay is NOT DKey enabled, so show the check in complete message")
@@ -162,12 +162,12 @@ extension AppDelegate: DKeyDelegate {
 // MARK: DKeyTravelDocsDelegate
 
 extension AppDelegate: DKeyTravelDocsDelegate {
-    public func travelDocsCompleted(stay: Stay) {
-        
+    public func travelDocsCompleted() {
+        dKeyModule.readyToSubmitRequestKey()
     }
 
     public func travelDocsCancelled() {
-//        dKeyModule.travelDocs
+        dKeyModule.readyToOptInForRequestKey()
     }
 }
 
@@ -232,7 +232,7 @@ extension AppDelegate: StaysDelegate {
         if let dKeyModule = dKeyModule,
             let rvc = rootVC() {
             
-            let requestKeyVC = dKeyModule.launchRequestKey(stay.stayId, ctyhocn: stay.hotel.ctyhocn, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
+            let requestKeyVC = dKeyModule.launchRequestKey(stay: stay, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
             
             rvc.present(requestKeyVC, animated: true) {
                 print("Presented Request Key flow")

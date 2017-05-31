@@ -10,6 +10,7 @@ import Foundation
 import CoreLibrary
 
 let TravelDocsCompletedNotificationName = "TravelDocsCompletedNotificationName"
+let TravelDocsCancelledNotificationName = "TravelDocsCancelledNotificationName"
 
 public class DKeyTravelDocsModule {
     
@@ -24,6 +25,7 @@ public class DKeyTravelDocsModule {
         print("DKeyTravelDocsModule created")
         
         NotificationCenter.default.addObserver(self, selector: #selector(DKeyTravelDocsModule.travelDocsCompleted(notification:)), name: NSNotification.Name(rawValue: TravelDocsCompletedNotificationName), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DKeyTravelDocsModule.travelDocsCancelled(notification:)), name: NSNotification.Name(rawValue: TravelDocsCancelledNotificationName), object: nil)
     }
     
     deinit {
@@ -42,7 +44,11 @@ public class DKeyTravelDocsModule {
                 
                 if areTravelDocsNeeded {
                     delegate.retrieveTravelDocsForGuest(honorsId: honorsId, stayId: stayId, completion: { (response: JSONDictionaryType?, _) in
-                        travelDocsVC = TravelDocsViewController.travelDocsController(honorsId: honorsId, stayId: stayId, ctyhocn: ctyhocn, existingTD: response!)
+                                            
+                        if let tdForm = TravelDocsForm(json: response) {
+                            travelDocsVC = TravelDocsViewController.travelDocsController(travelDocsForm: tdForm)
+                        }
+                        
                     })
                     
                 }
@@ -53,12 +59,10 @@ public class DKeyTravelDocsModule {
     }
     
     @objc func travelDocsCompleted(notification: Notification) {
-        if let notificationObject = notification.object as? Stay {
-            
-            delegate?.travelDocsCompleted(stay: notificationObject)
-            
-        } else {
-            delegate?.travelDocsCancelled()
-        }
+        delegate?.travelDocsCompleted()
+    }
+    
+    @objc func travelDocsCancelled(notification: Notification) {
+        delegate?.travelDocsCancelled()
     }
 }
