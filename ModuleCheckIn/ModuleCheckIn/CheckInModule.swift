@@ -25,6 +25,16 @@ struct CheckInCompletedNotification {
     }
 }
 
+public enum CheckInState {
+    case unknown
+    case unavailable
+    case available
+    case notEligible
+    case checkedIn
+    case checkedInWithRoom
+    case checkInFailure
+}
+
 public class CheckInModule {
     
     public var delegate: CheckInDelegate?
@@ -41,6 +51,10 @@ public class CheckInModule {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    public func checkInState(for segment: SegmentDetails, in stay: Stay) -> CheckInState {
+        return .available
     }
     
     public func launchCheckIn(for segment: SegmentDetails, in stay: Stay, completion: (UIViewController?) ->  Void) {

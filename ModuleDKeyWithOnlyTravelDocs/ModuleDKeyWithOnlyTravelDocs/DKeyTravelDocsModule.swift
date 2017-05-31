@@ -12,6 +12,19 @@ import CoreLibrary
 let TravelDocsCompletedNotificationName = "TravelDocsCompletedNotificationName"
 let TravelDocsCancelledNotificationName = "TravelDocsCancelledNotificationName"
 
+
+public enum DigitalKeyState {
+    case unknown
+    case canRequest
+    case requested
+    case provisioned
+    case available
+    case conflict
+    case tooLateToRequest
+    case failure
+    case checkedOut
+}
+
 public class DKeyTravelDocsModule {
     
     public var delegate: DKeyTravelDocsDelegate?
@@ -30,6 +43,10 @@ public class DKeyTravelDocsModule {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    public func digitalKeyState(for segment: SegmentDetails, in stay: Stay) -> DigitalKeyState {
+        return .canRequest
     }
     
     public func initialTravelDocsViewController(honorsId: String, stayId: String, ctyhocn: String, completion: (UIViewController?) ->  Void) {
