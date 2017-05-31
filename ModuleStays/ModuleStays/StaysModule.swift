@@ -35,14 +35,18 @@ public class StaysModule {
     }
     
     @objc private func launchCheckIn(notification: Notification) {
-        if let notificationObject = notification.object as? Stay {
-            delegate?.launchCheckIn(for: notificationObject)
+        if let dict = notification.userInfo as? [String: Any],
+            let segment = dict["segment"] as? SegmentDetails,
+            let stay = dict["stay"] as? Stay {
+            delegate?.launchCheckIn(for: segment, in: stay)
         }
     }
     
     @objc private func launchRequestKey(notification: Notification) {
-        if let notificationObject = notification.object as? Stay {
-            delegate?.launchRequestKey(for: notificationObject, welcomeMessage: nil)
+        if let dict = notification.userInfo as? [String: Any],
+            let segment = dict["segment"] as? SegmentDetails,
+            let stay = dict["stay"] as? Stay {
+            delegate?.launchRequestKey(for: segment, in: stay, welcomeMessage: nil)
         }
     }
 }

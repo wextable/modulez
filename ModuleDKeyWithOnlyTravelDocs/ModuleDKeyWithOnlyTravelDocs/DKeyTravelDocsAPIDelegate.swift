@@ -37,5 +37,4 @@ public protocol DKeyTravelDocsAPIDelegate {
     
     //travel docs info for a Honors member
     func retrieveTravelDocsForGuest(honorsId: String, completion: APIClientResponseClosure)
-    
 }

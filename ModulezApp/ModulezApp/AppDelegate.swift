@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: CheckInDelegate {
     
-    public func checkInCompleted(stay: Stay, selectedTime: String, isUpgrade: Bool) {
+    public func checkInCompleted(for segment: SegmentDetails, in stay: Stay, selectedTime: String, isUpgrade: Bool) {
         var welcomeMessage = "Great! See you at \(selectedTime)"
         if isUpgrade {
             welcomeMessage += " in your upgraded room, Boss!"
@@ -95,7 +95,7 @@ extension AppDelegate: CheckInDelegate {
             
             if stay.hotel.isDKeyEnabled {
                 print("Stay is DKey enabled, so let's push the Request Key VC")
-                vc = dKeyModule.launchRequestKey(stay: stay, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
+                vc = dKeyModule.launchRequestKey(for: segment, in: stay, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
                 
             } else {
                 print("Stay is NOT DKey enabled, so show the check in complete message")
@@ -216,10 +216,10 @@ extension AppDelegate: DKeyTravelDocsAPIDelegate {
 
 extension AppDelegate: StaysDelegate {
     
-    public func launchCheckIn(for stay: Stay) {
+    public func launchCheckIn(for segment: SegmentDetails, in stay: Stay) {
         if let rvc = rootVC() {
             
-            checkInModule.launchCheckIn(for: stay) { checkInViewController in
+            checkInModule.launchCheckIn(for: segment, in: stay) { checkInViewController in
                 guard let checkInViewController = checkInViewController else { return }
                 rvc.present(checkInViewController, animated: true) {
                     print("Presented Check In flow")
@@ -228,11 +228,11 @@ extension AppDelegate: StaysDelegate {
         }
     }
 
-    public func launchRequestKey(for stay: Stay, welcomeMessage: String?) {
+    public func launchRequestKey(for segment: SegmentDetails, in stay: Stay, welcomeMessage: String?) {
         if let dKeyModule = dKeyModule,
             let rvc = rootVC() {
             
-            let requestKeyVC = dKeyModule.launchRequestKey(stay: stay, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
+            let requestKeyVC = dKeyModule.launchRequestKey(for: segment, in: stay, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
             
             rvc.present(requestKeyVC, animated: true) {
                 print("Presented Request Key flow")

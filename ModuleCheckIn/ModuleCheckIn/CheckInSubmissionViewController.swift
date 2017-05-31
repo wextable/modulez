@@ -11,6 +11,7 @@ import CoreLibrary
 
 class CheckInSubmissionViewController: UIViewController {
 
+    var segment: SegmentDetails!
     var stay: Stay!
     
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class CheckInSubmissionViewController: UIViewController {
         if didSucceed {
             print("Check in completed!")
             dismiss(animated: true, completion: nil)
-            let notificationObject = CheckInCompletedNotification(stay: stay, checkInTime: checkInTime, isUpgrade: isUpgrade)
+            let notificationObject = CheckInCompletedNotification(segment: segment, stay: stay, checkInTime: checkInTime, isUpgrade: isUpgrade)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: CheckInCompletedNotificationName), object: notificationObject)
         } else {
             print("Error trying to check in")

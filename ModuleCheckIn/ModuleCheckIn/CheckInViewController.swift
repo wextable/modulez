@@ -11,12 +11,14 @@ import CoreLibrary
 
 class CheckInViewController: UIViewController {
     
+    var segment: SegmentDetails!
     var stay: Stay!
     
-    static func checkInController(for stay: Stay) -> UIViewController {
+    static func checkInController(for segment: SegmentDetails, in stay: Stay) -> UIViewController {
         let storyboard = UIStoryboard(name: "CheckIn", bundle: Bundle(for: self))
         let navVC = storyboard.instantiateViewController(withIdentifier :"CheckInViewControllerNav") as! UINavigationController
         let vc = navVC.topViewController as! CheckInViewController
+        vc.segment = segment
         vc.stay = stay
         return navVC
     }
@@ -31,6 +33,7 @@ class CheckInViewController: UIViewController {
         
         if let vc = segue.destination as? CheckInSubmissionViewController {
             print("Selected a room, pushing to Check In Submission  ")
+            vc.segment = segment
             vc.stay = stay
         }
     }

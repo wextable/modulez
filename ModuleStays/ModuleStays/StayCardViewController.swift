@@ -34,13 +34,13 @@ class StayCardViewController: UIViewController {
 
     @IBAction private func launchCheckIn(sender: UIButton) {
         if let stay = stay {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: LaunchCheckInNotificationName), object: stay)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: LaunchCheckInNotificationName), object: nil, userInfo: ["stay": stay, "segment": stay.segments.first!])
         }
     }
 
     @IBAction private func launchRequestKey(sender: UIButton) {
         if let stay = stay {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: LaunchRequestKeyNotificationName), object: stay)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: LaunchRequestKeyNotificationName), object: nil, userInfo: ["stay": stay, "segment": stay.segments.first!])
         }
     }
     

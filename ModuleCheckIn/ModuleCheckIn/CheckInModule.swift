@@ -12,11 +12,13 @@ import CoreLibrary
 let CheckInCompletedNotificationName = "CheckInCompletedNotification"
 
 struct CheckInCompletedNotification {
+    let segment: SegmentDetails
     let stay: Stay
     let checkInTime: String
     let isUpgrade: Bool
     
-    init(stay: Stay, checkInTime: String, isUpgrade: Bool) {
+    init(segment: SegmentDetails, stay: Stay, checkInTime: String, isUpgrade: Bool) {
+        self.segment = segment
         self.stay = stay
         self.checkInTime = checkInTime
         self.isUpgrade = isUpgrade
@@ -41,7 +43,7 @@ public class CheckInModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func launchCheckIn(for stay: Stay, completion: (UIViewController?) ->  Void) {
+    public func launchCheckIn(for segment: SegmentDetails, in stay: Stay, completion: (UIViewController?) ->  Void) {
         
         // Somewhere internal to the CheckInModule, we make the API call to get check in times, etc
         let apiCallSuccess = true
@@ -49,7 +51,7 @@ public class CheckInModule {
         var initialCheckInVC: UIViewController?
         if apiCallSuccess {
             // Then we create the check in VC and return it in the completion
-            initialCheckInVC = CheckInViewController.checkInController(for: stay)
+            initialCheckInVC = CheckInViewController.checkInController(for: segment, in: stay)
         }
         completion(initialCheckInVC)
     }
@@ -57,7 +59,7 @@ public class CheckInModule {
     @objc func checkInCompleted(notification: Notification) {
         if let notificationObject = notification.object as? CheckInCompletedNotification {
             
-            delegate?.checkInCompleted(stay: notificationObject.stay, selectedTime: notificationObject.checkInTime, isUpgrade: notificationObject.isUpgrade)
+            delegate?.checkInCompleted(for: notificationObject.segment, in: notificationObject.stay, selectedTime: notificationObject.checkInTime, isUpgrade: notificationObject.isUpgrade)
         } else {
             delegate?.checkInCancelled()
         }
