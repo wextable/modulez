@@ -30,18 +30,21 @@ public class DKeyTravelDocsModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func initialTravelDocsViewController(for stay: Stay, completion: (UIViewController?) ->  Void) {
+    public func initialTravelDocsViewController(honorsId: String, stayId: String, ctyhocn: String, completion: (UIViewController?) ->  Void) {
 
         var travelDocsVC: UIViewController?
         
         if let delegate = apiDelegate {
-            delegate.getTravelDocsForHotel(ctyhocn: ""/*stay.ctyhocn*/) { json, error in
+            delegate.getTravelDocsForHotel(ctyhocn: ctyhocn) { json, error in
                 
                 // Pretending to parse JSON
                 let areTravelDocsNeeded = true
                 
                 if areTravelDocsNeeded {
-                    travelDocsVC = TravelDocsViewController.travelDocsController(for: stay)
+                    delegate.retrieveTravelDocsForGuest(honorsId: honorsId, stayId: stayId, completion: { (response: JSONDictionaryType?, _) in
+                        travelDocsVC = TravelDocsViewController.travelDocsController(honorsId: honorsId, stayId: stayId, ctyhocn: ctyhocn, existingTD: response!)
+                    })
+                    
                 }
             }
         }

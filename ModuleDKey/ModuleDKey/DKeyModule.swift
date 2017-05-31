@@ -34,10 +34,10 @@ public class DKeyModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func launchRequestKey(for stay: Stay, welcomeMessage: String?) -> UIViewController {
+    public func launchRequestKey(_ stayId: String, ctyhocn: String, honorsId: String, welcomeMessage: String?) -> UIViewController {
         let message = welcomeMessage ?? "Digital keys are the best"
         
-        let initialRequestKeyVC = RequestKeyViewController.requestKeyController(for: stay, welcomeMessage: message)
+        let initialRequestKeyVC = RequestKeyViewController.requestKeyController(for: stayId, ctyhocn: ctyhocn, honorsId: honorsId, welcomeMessage: message)
         return initialRequestKeyVC
     }
     
@@ -50,9 +50,8 @@ public class DKeyModule {
     }
     
     @objc func startTravelDocsFlow(notification: Notification) {
-        if let notificationObject = notification.object as? Stay {
-            
-            delegate?.travelDocsViewController(for: notificationObject) { viewController in
+        if let userInfo = notification.userInfo as? [String : Any] {
+            delegate?.travelDocsViewController(honorsId: userInfo["honorsId"] as! String, stayId: userInfo["stayId"] as! String, ctyhocn: userInfo["ctyhocn"] as! String) { viewController in
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: InitialTravelDocsViewControllerNotificationName), object: viewController)
             }
         }

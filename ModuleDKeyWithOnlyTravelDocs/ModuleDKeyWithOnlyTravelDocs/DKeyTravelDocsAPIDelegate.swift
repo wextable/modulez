@@ -27,11 +27,15 @@ public protocol DKeyTravelDocsAPIDelegate {
     func getTravelDocsForHotel(ctyhocn: String, completion: APIClientResponseClosure)
     
     //travel docs for stay
-    func retrieveTravelDocsForGuest(honorsId: String, confirmationNumber: String, completion: APIClientResponseClosure)
-    func createTravelDocsForGuest(honorsId: String, confirmationNumber: String, primaryGuestInfo: [String: Any], additionalGuestsInfo: [String: Any]?, completion: APIClientResponseClosure)
-    func modifyTravelDocsForGuest(honorsId: String, confirmationNumber: String, primaryGuestInfo: [String: Any], additionalGuestsInfo: [String: Any]?, completion: APIClientResponseClosure)
+    func retrieveTravelDocsForGuest(honorsId: String, stayId: String, completion: APIClientResponseClosure)
+    func createTravelDocsForGuest(honorsId: String, stayId: String, travelDocs: [String: Any], completion: APIClientResponseClosure)
+    func modifyTravelDocsForGuest(honorsId: String, stayId: String, travelDocs: [String: Any], completion: APIClientResponseClosure)
     
     //save to memberAccount
-    func createTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String: Any], completion: APIClientResponseClosure)
-    func modifyTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String: Any], completion: APIClientResponseClosure)
+    func createTravelDocsForPrimaryGuest(honorsId: String, travelDocs: [String: Any], completion: APIClientResponseClosure)
+    func modifyTravelDocsForPrimaryGuest(honorsId: String, travelDocs: [String: Any], completion: APIClientResponseClosure)
+    
+    //travel docs info for a Honors member
+    func retrieveTravelDocsForGuest(honorsId: String, completion: APIClientResponseClosure)
+    
 }

@@ -12,6 +12,7 @@ public class Stay {
     public var confirmationNumber: String = "12345678"
     public var hotel: Hotel = Hotel()
     public var segments: [SegmentDetails] = [SegmentDetails]()
+    public var stayId: String = "123"
     
     public init() {
         
