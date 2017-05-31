@@ -12,10 +12,14 @@ import CoreLibrary
 class TravelDocsViewController: UIViewController {
 
     var stay: Stay!
+    var existingTravelDocsInfo: JSONDictionaryType?
     
-    static func travelDocsController(for stay: Stay) -> UIViewController {
+    static func travelDocsController(honorsId: String, stayId: String, ctyhocn: String, existingTD: JSONDictionaryType) -> UIViewController {
         let storyboard = UIStoryboard(name: "TravelDocs", bundle: Bundle(for: self))
         let vc = storyboard.instantiateViewController(withIdentifier :"TravelDocsViewController") as! TravelDocsViewController
+        let stay = Stay()
+        stay.stayId = stayId
+        stay.hotel.ctyhocn = ctyhocn
         vc.stay = stay
         return vc
     }

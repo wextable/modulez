@@ -24,7 +24,7 @@ public class APIClient {
     }
     
     //travel docs for stay
-    public func getTravelDocForGuest(honorsId: String, confirmNum: String) -> JSONDictionaryType {
+    public func getTravelDocForGuest(honorsId: String, stayId: String) -> JSONDictionaryType {
         return [
             "TravelDocs" : [
                 "IdType": "Visa",
@@ -35,21 +35,32 @@ public class APIClient {
         ]
     }	
 
-    public func postTravelDocsForGuest(honorsId: String, confirmNum: String, primaryGuestInfo: [String : Any], additionalGuestsInfo: [String : Any]?) -> JSONDictionaryType {
+    public func postTravelDocsForGuest(honorsId: String, stayId: String, travelDocs: [String : Any]) -> JSONDictionaryType {
         return ["Reponse" : "Success"]
     }
     
-    public func putTravelDocsForGuest(honorsId: String, confirmNum: String, primaryGuestInfo: [String : Any], additionalGuestsInfo: [String : Any]?) -> JSONDictionaryType {
+    public func putTravelDocsForGuest(honorsId: String, stayId: String, travelDocs: [String : Any]) -> JSONDictionaryType {
         return ["Reponse" : "Success"]
     }
     
     
     //travel docs for guest
-    public func postTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String : Any]) -> JSONDictionaryType {
+    public func postTravelDocsForPrimaryGuest(honorsId: String, travelDocs: [String : Any]) -> JSONDictionaryType {
         return ["Reponse" : "Success"]
     }
     
-    public func putTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String : Any]) -> JSONDictionaryType {
+    public func putTravelDocsForPrimaryGuest(honorsId: String, travelDocs: [String : Any]) -> JSONDictionaryType {
         return ["Reponse" : "Success"]
+    }
+    
+    //travel docs for stay
+    public func getTravelDocForGuest(honorsId: String) -> JSONDictionaryType {
+        return [
+            "TravelDocs" : [
+                "IdType": "Visa",
+                "PassportIdNumber": "292929292929",
+                "PlaceofIssue": "IND",
+            ]
+        ]
     }
 }

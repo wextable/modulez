@@ -11,7 +11,6 @@ import Foundation
 public class Member {
     public var honorsId: String = "7598402112"
     public var creditCard: CreditCard?
-    public var travelDocs: [String: Any]?
     
     public init() {
         

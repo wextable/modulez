@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var dKeyWithOnlyTravelDocsModule: DKeyTravelDocsModule!
     var staysModule: StaysModule!
     var apiClient: APIClient = APIClient()
+    var member: Member = Member(honorsId: "123456")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -94,7 +95,7 @@ extension AppDelegate: CheckInDelegate {
             
             if stay.hotel.isDKeyEnabled {
                 print("Stay is DKey enabled, so let's push the Request Key VC")
-                vc = dKeyModule.launchRequestKey(for: stay, welcomeMessage: welcomeMessage)
+                vc = dKeyModule.launchRequestKey(stay.stayId, ctyhocn: stay.hotel.ctyhocn, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
                 
             } else {
                 print("Stay is NOT DKey enabled, so show the check in complete message")
@@ -138,8 +139,8 @@ extension AppDelegate: CheckInDelegate {
 
 extension AppDelegate: DKeyDelegate {
     
-    public func travelDocsViewController(for stay: Stay, completion: (UIViewController?) ->  Void) {
-        dKeyWithOnlyTravelDocsModule.initialTravelDocsViewController(for: stay) { viewController in
+    public func travelDocsViewController(honorsId: String, stayId: String, ctyhocn: String, completion: (UIViewController?) ->  Void) {
+        dKeyWithOnlyTravelDocsModule.initialTravelDocsViewController(honorsId: honorsId, stayId: stayId, ctyhocn: ctyhocn) { viewController in
             completion(viewController)
         }
     }
@@ -174,33 +175,38 @@ extension AppDelegate: DKeyTravelDocsDelegate {
 // MARK: DKeyTravelDocsAPIDelegate
 
 extension AppDelegate: DKeyTravelDocsAPIDelegate {
+    public func retrieveTravelDocsForGuest(honorsId: String, completion: APIClientResponseClosure) {
+        let response = apiClient.getTravelDocForGuest(honorsId: honorsId)
+        completion(response, nil)
+    }
+    
     public func getTravelDocsForHotel(ctyhocn: String, completion: (JSONDictionaryType?, APIClientError?) -> Void) {
         let response = apiClient.getTravelDocForms(ctyhocn: ctyhocn)
         completion(response, nil)
     }
     
-    public func retrieveTravelDocsForGuest(honorsId: String, confirmationNumber: String, completion: APIClientResponseClosure) {
-        let response = apiClient.getTravelDocForGuest(honorsId: honorsId, confirmNum: confirmationNumber)
+    public func retrieveTravelDocsForGuest(honorsId: String, stayId: String, completion: APIClientResponseClosure) {
+        let response = apiClient.getTravelDocForGuest(honorsId: honorsId, stayId: stayId)
         completion(response, nil)
     }
     
-    func createTravelDocsForGuest(honorsId: String, confirmationNumber: String, primaryGuestInfo: [String: Any], additionalGuestsInfo: [String: Any]?, completion: APIClientResponseClosure) {
-        let response = apiClient.postTravelDocsForGuest(honorsId: honorsId, confirmNum: confirmationNumber, primaryGuestInfo: primaryGuestInfo, additionalGuestsInfo: additionalGuestsInfo)
+    func createTravelDocsForGuest(honorsId: String, stayId: String, travelDocs: [String: Any], completion: APIClientResponseClosure) {
+        let response = apiClient.postTravelDocsForGuest(honorsId: honorsId, stayId: stayId, travelDocs: travelDocs)
         completion(response, nil)
     }
     
-    func modifyTravelDocsForGuest(honorsId: String, confirmationNumber: String, primaryGuestInfo: [String: Any], additionalGuestsInfo: [String: Any]?, completion: APIClientResponseClosure) {
-        let response = apiClient.putTravelDocsForGuest(honorsId: honorsId, confirmNum: confirmationNumber, primaryGuestInfo: primaryGuestInfo, additionalGuestsInfo: additionalGuestsInfo)
+    func modifyTravelDocsForGuest(honorsId: String, stayId: String, travelDocs: [String: Any], completion: APIClientResponseClosure) {
+        let response = apiClient.putTravelDocsForGuest(honorsId: honorsId, stayId: stayId, travelDocs: travelDocs)
         completion(response, nil)
     }
     
-    func createTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String: Any], completion: APIClientResponseClosure) {
-        let response = apiClient.postTravelDocsForPrimaryGuest(honorsId: honorsId, primaryGuestInfo: primaryGuestInfo)
+    func createTravelDocsForPrimaryGuest(honorsId: String, travelDocs: [String: Any], completion: APIClientResponseClosure) {
+        let response = apiClient.postTravelDocsForPrimaryGuest(honorsId: honorsId, travelDocs: travelDocs)
         completion(response, nil)
     }
     
-    func modifyTravelDocsForPrimaryGuest(honorsId: String, primaryGuestInfo: [String: Any], completion: APIClientResponseClosure) {
-        let response = apiClient.putTravelDocsForPrimaryGuest(honorsId: honorsId, primaryGuestInfo: primaryGuestInfo)
+    func modifyTravelDocsForPrimaryGuest(honorsId: String, travelDocs: [String: Any], completion: APIClientResponseClosure) {
+        let response = apiClient.putTravelDocsForPrimaryGuest(honorsId: honorsId, travelDocs: travelDocs)
         completion(response, nil)
     }
 }
@@ -223,7 +229,7 @@ extension AppDelegate: StaysDelegate {
         if let dKeyModule = dKeyModule,
             let rvc = rootVC() {
             
-            let requestKeyVC = dKeyModule.launchRequestKey(for: stay, welcomeMessage: welcomeMessage)
+            let requestKeyVC = dKeyModule.launchRequestKey(stay.stayId, ctyhocn: stay.hotel.ctyhocn, honorsId: member.honorsId, welcomeMessage: welcomeMessage)
             
             rvc.present(requestKeyVC, animated: true) {
                 print("Presented Request Key flow")
