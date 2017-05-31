@@ -41,9 +41,17 @@ public class CheckInModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func launchCheckIn(for stay: Stay) -> UIViewController {
-        let initialCheckInVC = CheckInViewController.checkInController(for: stay)
-        return initialCheckInVC
+    public func launchCheckIn(for stay: Stay, completion: (UIViewController?) ->  Void) {
+        
+        // Somewhere internal to the CheckInModule, we make the API call to get check in times, etc
+        let apiCallSuccess = true
+        
+        var initialCheckInVC: UIViewController?
+        if apiCallSuccess {
+            // Then we create the check in VC and return it in the completion
+            initialCheckInVC = CheckInViewController.checkInController(for: stay)
+        }
+        completion(initialCheckInVC)
     }
     
     @objc func checkInCompleted(notification: Notification) {

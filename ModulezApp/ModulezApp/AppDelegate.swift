@@ -209,12 +209,15 @@ extension AppDelegate: DKeyTravelDocsAPIDelegate {
 // MARK: StaysDelegate
 
 extension AppDelegate: StaysDelegate {
+    
     public func launchCheckIn(for stay: Stay) {
         if let rvc = rootVC() {
             
-            let checkInVC = checkInModule.launchCheckIn(for: stay)
-            rvc.present(checkInVC, animated: true) {
-                print("Presented Check In flow")
+            checkInModule.launchCheckIn(for: stay) { checkInViewController in
+                guard let checkInViewController = checkInViewController else { return }
+                rvc.present(checkInViewController, animated: true) {
+                    print("Presented Check In flow")
+                }
             }
         }
     }
