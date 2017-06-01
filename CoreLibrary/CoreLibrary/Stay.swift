@@ -11,7 +11,7 @@ import Foundation
 public class Stay {
     public var confirmationNumber: String = "12345678"
     public var hotel: Hotel = Hotel()
-    public var segments: [SegmentDetails] = [SegmentDetails()]
+    public var segments: [Segment] = [Segment()]
     
     public init() {
         
@@ -23,13 +23,4 @@ public class Stay {
     }
 }
 
-public class SegmentDetails {
-    
-    public var adults: Int = 1
-    public var children: Int = 0
-    public var stayId: String = "123"
-    
-    public init() {
-        
-    }
-}
+

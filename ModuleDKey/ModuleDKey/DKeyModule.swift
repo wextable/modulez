@@ -34,7 +34,7 @@ public class DKeyModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func launchRequestKey(for segment: SegmentDetails, in stay: Stay, honorsId: String, welcomeMessage: String?) -> UIViewController {
+    public func launchRequestKey(for segment: Segment, in stay: Stay, honorsId: String, welcomeMessage: String?) -> UIViewController {
         let message = welcomeMessage ?? "Digital keys are the best"
         
         let initialRequestKeyVC = RequestKeyViewController.requestKeyController(for: segment, in: stay, honorsId: honorsId, welcomeMessage: message)

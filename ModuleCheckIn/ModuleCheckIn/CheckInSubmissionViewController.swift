@@ -11,7 +11,7 @@ import CoreLibrary
 
 class CheckInSubmissionViewController: UIViewController {
 
-    var segment: SegmentDetails!
+    var segment: Segment!
     var stay: Stay!
     
     override func viewDidLoad() {

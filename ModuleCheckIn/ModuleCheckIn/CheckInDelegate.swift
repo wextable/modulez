@@ -18,7 +18,7 @@ public enum UserFlowEndReason: Int {
 
 public protocol CheckInDelegate {
     
-    func checkInCompleted(for segment: SegmentDetails, in stay: Stay, selectedTime: String, isUpgrade: Bool)
+    func checkInCompleted(for segment: Segment, in stay: Stay, selectedTime: String, isUpgrade: Bool)
     
     func checkInCancelled()
     

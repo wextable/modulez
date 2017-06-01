@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: CheckInDelegate {
     
-    public func checkInCompleted(for segment: SegmentDetails, in stay: Stay, selectedTime: String, isUpgrade: Bool) {
+    public func checkInCompleted(for segment: Segment, in stay: Stay, selectedTime: String, isUpgrade: Bool) {
         var welcomeMessage = "Great! See you at \(selectedTime)"
         if isUpgrade {
             welcomeMessage += " in your upgraded room, Boss!"
@@ -216,7 +216,7 @@ extension AppDelegate: DKeyTravelDocsAPIDelegate {
 
 extension AppDelegate: StaysDelegate {
     
-    public func launchCheckIn(for segment: SegmentDetails, in stay: Stay) {
+    public func launchCheckIn(for segment: Segment, in stay: Stay) {
         if let rvc = rootVC() {
             
             checkInModule.launchCheckIn(for: segment, in: stay) { checkInViewController in
@@ -228,7 +228,7 @@ extension AppDelegate: StaysDelegate {
         }
     }
 
-    public func launchRequestKey(for segment: SegmentDetails, in stay: Stay, welcomeMessage: String?) {
+    public func launchRequestKey(for segment: Segment, in stay: Stay, welcomeMessage: String?) {
         if let dKeyModule = dKeyModule,
             let rvc = rootVC() {
             

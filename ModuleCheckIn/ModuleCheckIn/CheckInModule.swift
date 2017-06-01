@@ -12,27 +12,17 @@ import CoreLibrary
 let CheckInCompletedNotificationName = "CheckInCompletedNotification"
 
 struct CheckInCompletedNotification {
-    let segment: SegmentDetails
+    let segment: Segment
     let stay: Stay
     let checkInTime: String
     let isUpgrade: Bool
     
-    init(segment: SegmentDetails, stay: Stay, checkInTime: String, isUpgrade: Bool) {
+    init(segment: Segment, stay: Stay, checkInTime: String, isUpgrade: Bool) {
         self.segment = segment
         self.stay = stay
         self.checkInTime = checkInTime
         self.isUpgrade = isUpgrade
     }
-}
-
-public enum CheckInState {
-    case unknown
-    case unavailable
-    case available
-    case notEligible
-    case checkedIn
-    case checkedInWithRoom
-    case checkInFailure
 }
 
 public class CheckInModule {
@@ -53,11 +43,7 @@ public class CheckInModule {
         NotificationCenter.default.removeObserver(self)
     }
     
-    public func checkInState(for segment: SegmentDetails, in stay: Stay) -> CheckInState {
-        return .available
-    }
-    
-    public func launchCheckIn(for segment: SegmentDetails, in stay: Stay, completion: (UIViewController?) ->  Void) {
+    public func launchCheckIn(for segment: Segment, in stay: Stay, completion: (UIViewController?) ->  Void) {
         
         // Somewhere internal to the CheckInModule, we make the API call to get check in times, etc
         let apiCallSuccess = true

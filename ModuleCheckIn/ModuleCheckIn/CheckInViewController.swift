@@ -11,10 +11,10 @@ import CoreLibrary
 
 class CheckInViewController: UIViewController {
     
-    var segment: SegmentDetails!
+    var segment: Segment!
     var stay: Stay!
     
-    static func checkInController(for segment: SegmentDetails, in stay: Stay) -> UIViewController {
+    static func checkInController(for segment: Segment, in stay: Stay) -> UIViewController {
         let storyboard = UIStoryboard(name: "CheckIn", bundle: Bundle(for: self))
         let navVC = storyboard.instantiateViewController(withIdentifier :"CheckInViewControllerNav") as! UINavigationController
         let vc = navVC.topViewController as! CheckInViewController

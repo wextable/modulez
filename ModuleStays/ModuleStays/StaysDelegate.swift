@@ -11,7 +11,7 @@ import CoreLibrary
 
 public protocol StaysDelegate {
     
-    func launchCheckIn(for segment: SegmentDetails, in stay: Stay)
+    func launchCheckIn(for segment: Segment, in stay: Stay)
     
-    func launchRequestKey(for segment: SegmentDetails, in stay: Stay, welcomeMessage: String?)
+    func launchRequestKey(for segment: Segment, in stay: Stay, welcomeMessage: String?)
 }

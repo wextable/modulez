@@ -11,14 +11,14 @@ import CoreLibrary
 
 class RequestKeyViewController: UIViewController {
 
-    var segment: SegmentDetails!
+    var segment: Segment!
     var stay: Stay!
     var welcomeMessage: String!
     var honorsId: String!
     
     @IBOutlet var welcomeLabel: UILabel!
     
-    static func requestKeyController(for segment: SegmentDetails, in stay: Stay, honorsId: String, welcomeMessage: String) -> UIViewController {
+    static func requestKeyController(for segment: Segment, in stay: Stay, honorsId: String, welcomeMessage: String) -> UIViewController {
         let storyboard = UIStoryboard(name: "RequestKey", bundle: Bundle(for: self))
         let navVC = storyboard.instantiateViewController(withIdentifier :"RequestKeyViewControllerNav") as! UINavigationController
         let vc = navVC.topViewController as! RequestKeyViewController
